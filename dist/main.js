@@ -1,1 +1,0 @@
-console.log("it works"),function(){const e=document.createElement("div");e.classList.add("website-header");const t=document.createElement("div");t.classList.add("sections-tab-container");const n=document.createElement("div");n.classList.add("page-content"),document.querySelector("#content").append(e,t,n)}();
