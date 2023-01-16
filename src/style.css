@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'AmneSans';
+  src: url('./AmneSans-BWXVd.ttf'), url('./AmneSans-RpXxA.otf');
+}
+
+@font-face {
+  font-family: 'Binjay';
+  src: url('./Binjay-lgeV0.woff'), url('./Binjay-nR5D0.woff');
+}
+
+@font-face {
+  font-family: 'Ferrum';
+  src: url('./Ferrum-wy99.woff');
+}
+@font-face {
+  font-family: 'GeBody';
+  src: url('./GeBody-x0zj.woff');
+}
+
+:root {
+  --ff-header-section: 'Binjay', monospace;
+  --ff-header-small: 'GeBody';
+  --ff-header-website: 'AmneSans', cursive;
+  --ff-body: 'Ferrum';
+}
+
 /* RESET */
 /* Box sizing rules */
 *,
@@ -68,17 +94,45 @@ svg {
 /* GENERAL STYLING */
 
 body {
-  background-color: red;
+  /* background-image: url('./bg.jpg');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: top; */
+  background-color: rgb(51, 51, 51);
+  font-family: var(--ff-body);
 }
 
 #content {
   display: grid;
-  width: 80%;
-  height: 100%;
+  grid-template-rows: max-content max-content auto;
+  justify-items: center;
+  width: clamp(320px, 80%, 700px);
+  min-height: 100%;
+  height: fit-content;
   margin: 0 auto;
   background-color: hsla(0, 100%, 100%, 0.8);
 }
 
 .sections-tab-container {
+  width: max(310px, 80%);
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+}
+
+.tab-menu-item {
+  font-family: var(--ff-header-section);
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  cursor: pointer;
+}
+
+.website-header {
+  font-family: var(--ff-header-website);
+  font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.small-header {
+  font-family: var(--ff-header-small);
+  font-size: var(1.125rem);
 }
