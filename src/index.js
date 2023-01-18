@@ -2,7 +2,7 @@ import './style.css';
 console.log('it works');
 
 // onload
-const loadFunction = function () {
+const onloadFunction = function () {
   const websiteHeader = document.createElement('div');
   websiteHeader.classList.add('website-header');
   websiteHeader.textContent = 'The BunZi';
@@ -45,16 +45,14 @@ const loadFunction = function () {
     sectionsTabContainer,
     pageContentContainer
   );
+
+  return pageContentContainer;
 };
 
 const createAboutPage = function () {
-  const pageContentContainer = document.querySelector('.page-content');
-
-  pageContentContainer.setAttribute('id', 'about');
-  const AboutHeader = document.createElement('h2');
-  AboutHeader.classList.add('small-header');
-  AboutHeader.textContent = 'About';
-
+  const aboutHeader = document.createElement('h2');
+  aboutHeader.classList.add('small-header');
+  aboutHeader.textContent = 'About';
   const aboutText = document.createElement('div');
   aboutText.classList.add('about-text');
 
@@ -71,9 +69,25 @@ const createAboutPage = function () {
   const aboutImage = document.createElement('img');
   aboutImage.classList.add('about-image');
 
-  pageContentContainer.append(AboutHeader, aboutText, aboutImage);
+  //   pageContentContainer.append(aboutHeader, aboutText, aboutImage);
+  return { aboutHeader, aboutText, aboutImage };
+};
+
+const loadContentPage = function (id, func) {
+  const pageContentContainer = document.querySelector('.page-content');
+  pageContentContainer.setAttribute('id', id);
+  const newPageElementsDict = func();
+  for (let elemName in newPageElementsDict) {
+    pageContentContainer.append(newPageElementsDict[elemName]);
+  }
+};
+
+const emptyContentPage = function () {
+  const pageContentContainer = document.querySelector('.page-content');
+  pageContentContainer.innerHTML = '';
 };
 
 // employ functions
-loadFunction();
-createAboutPage();
+onloadFunction();
+// createAboutPage();
+loadContentPage('about', createAboutPage);
