@@ -1,5 +1,8 @@
 import './style.css';
 import AboutImg from './about.jpg';
+import instaImg from './instagram-icon.svg';
+import fbImg from './facebook-icon.svg';
+import twitImg from './twitter-icon.svg';
 console.log('it works');
 
 // onload
@@ -169,7 +172,6 @@ const createContactPage = function () {
   contactForm.setAttribute('id', 'contact-form');
   addSmallHeader(contactformContainer, 'contact-form-header', 'Message us');
 
-  //   'e.g. john.smith@gmail.com';
   const emailContainer = createInputBox(
     'email',
     'Email',
@@ -177,7 +179,6 @@ const createContactPage = function () {
     'input',
     'email'
   );
-
   const textareaContainer = createInputBox(
     'user-message',
     'Message',
@@ -193,7 +194,27 @@ const createContactPage = function () {
   contactForm.append(emailContainer, textareaContainer, submitButton);
   contactformContainer.append(contactForm);
 
-  return { infoContainer, contactformContainer };
+  const socialsContainer = document.createElement('div');
+  socialsContainer.classList.add('socials-container');
+  addSmallHeader(
+    socialsContainer,
+    'social-header',
+    'Follow us on social media!'
+  );
+
+  const linkContainer = document.createElement('div');
+  linkContainer.classList.add('link-container');
+  const fbIcon = createSocialLink(
+    'https://www.facebook.com/inbar.amir.7/',
+    fbImg,
+    'facebook'
+  );
+  const instaIcon = createSocialLink('#', instaImg, 'instagram');
+  const twitterIcon = createSocialLink('#', twitImg, 'twitter');
+  linkContainer.append(fbIcon, instaIcon, twitterIcon);
+  socialsContainer.append(linkContainer);
+
+  return { infoContainer, contactformContainer, socialsContainer };
 
   function addSmallHeader(parentElement, classname, title) {
     const header = document.createElement('h3');
@@ -244,6 +265,18 @@ const createContactPage = function () {
 
     container.append(label, userInput, messageBox);
     return container;
+  }
+  function createSocialLink(socialLink, img, description) {
+    const link = document.createElement('a');
+    link.classList.add('social-link');
+    link.setAttribute('href', socialLink);
+    link.setAttribute('target', '_blank');
+    const icon = document.createElement('img');
+    icon.classList.add('social-icon');
+    icon.setAttribute('src', img);
+    icon.setAttribute('alt', description);
+    link.append(icon);
+    return link;
   }
 };
 
