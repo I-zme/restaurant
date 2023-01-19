@@ -205,12 +205,20 @@ const createContactPage = function () {
   const linkContainer = document.createElement('div');
   linkContainer.classList.add('link-container');
   const fbIcon = createSocialLink(
-    'https://www.facebook.com/inbar.amir.7/',
+    'https://www.facebook.com',
     fbImg,
-    'facebook'
+    'link to facebook'
   );
-  const instaIcon = createSocialLink('#', instaImg, 'instagram');
-  const twitterIcon = createSocialLink('#', twitImg, 'twitter');
+  const instaIcon = createSocialLink(
+    'https://www.instagram.com/',
+    instaImg,
+    'link to instagram'
+  );
+  const twitterIcon = createSocialLink(
+    'https://twitter.com/',
+    twitImg,
+    'link to twitter'
+  );
   linkContainer.append(fbIcon, instaIcon, twitterIcon);
   socialsContainer.append(linkContainer);
 
