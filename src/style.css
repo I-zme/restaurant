@@ -358,4 +358,13 @@ body {
     grid-row: 4;
     margin: 0;
   }
+
+  #contact {
+    grid-template-columns: 1fr;
+  }
+
+  #contact > div {
+    width: max(290px, 80%);
+    margin: 0 auto;
+  }
 }
