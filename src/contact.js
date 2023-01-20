@@ -1,6 +1,6 @@
-import instaImg from './instagram-icon.svg';
-import fbImg from './facebook-icon.svg';
-import twitImg from './twitter-icon.svg';
+import instaImg from './assets/icons/instagram-icon.svg';
+import fbImg from './assets/icons/facebook-icon.svg';
+import twitImg from './assets/icons/twitter-icon.svg';
 import { validate } from 'schema-utils';
 
 const createContactPage = function () {

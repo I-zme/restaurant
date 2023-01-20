@@ -1,21 +1,23 @@
 @font-face {
   font-family: 'AmneSans';
-  src: url('./AmneSans-BWXVd.ttf'), url('./AmneSans-RpXxA.otf');
+  src: url('./assets/fonts/AmneSans-BWXVd.ttf'),
+    url('./assets/fonts/AmneSans-RpXxA.otf');
 }
 
 @font-face {
   font-family: 'Binjay';
-  src: url('./Binjay-lgeV0.woff'), url('./Binjay-nR5D0.woff');
+  src: url('./assets/fonts/Binjay-lgeV0.woff'),
+    url('./assets/fonts/Binjay-nR5D0.woff');
 }
 
 @font-face {
   font-family: 'GeBody';
-  src: url('./GeBody-x0zj.woff');
+  src: url('./assets/fonts/GeBody-x0zj.woff');
 }
 
 @font-face {
   font-family: 'Oswald';
-  src: url('./Oswald-VariableFont_wght.ttf');
+  src: url('./assets/fonts/Oswald-VariableFont_wght.ttf');
   font-weight: 200;
   font-style: normal;
 }
@@ -123,7 +125,7 @@ svg {
 /* GENERAL STYLING */
 
 body {
-  background-image: url('./TexturesCom_Smoke0342_S.jpg');
+  background-image: url('./assets/img/TexturesCom_Smoke0342_S.jpg');
   background-repeat: repeat;
   background-position: center;
   font-family: var(--ff-body);

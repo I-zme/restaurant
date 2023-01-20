@@ -1,4 +1,4 @@
-import AboutImg from './about.jpg';
+import AboutImg from './assets/img/about.jpg';
 
 const createAboutPage = function () {
   const aboutHeader = document.createElement('h2');

@@ -1,8 +1,8 @@
-import tangbaoImg from './tangbao.jpg';
-import xiaolongbaoImg from './Xiaolongbao.jpg';
-import jiaoziImg from './BoiledDumplings.jpg';
-import shumaiImg from './shumai.jpg';
-import wontonImg from './wonton.jpg';
+import tangbaoImg from './assets/img/tangbao.jpg';
+import xiaolongbaoImg from './assets/img/Xiaolongbao.jpg';
+import jiaoziImg from './assets/img/BoiledDumplings.jpg';
+import shumaiImg from './assets/img/shumai.jpg';
+import wontonImg from './assets/img/wonton.jpg';
 
 const createMenuPage = function () {
   const menuItems = [
