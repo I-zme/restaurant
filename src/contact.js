@@ -1,6 +1,7 @@
 import instaImg from './instagram-icon.svg';
 import fbImg from './facebook-icon.svg';
 import twitImg from './twitter-icon.svg';
+import { validate } from 'schema-utils';
 
 const createContactPage = function () {
   const infoContainer = document.createElement('div');
@@ -136,6 +137,8 @@ function createInputBox(idName, labelName, placeholder, elementTag, type) {
   userInput.setAttribute('id', idName);
   userInput.setAttribute('class', 'form-input');
   userInput.setAttribute('placeholder', placeholder);
+  userInput.setAttribute('required', '');
+  userInput.setAttribute('maxlength', '250');
 
   const messageBox = document.createElement('p');
   messageBox.classList.add('message-box');
@@ -158,4 +161,65 @@ function createSocialLink(socialLink, img, description) {
   return link;
 }
 
-export { createContactPage };
+function checkValidation() {
+  const submitButton = document.querySelector('button[type="submit"]');
+  const email = document.querySelector('#email');
+  const textarea = document.querySelector('#user-message');
+  const emailMessageBox = document.querySelector('#email +.message-box');
+  const textareaMessageBox = document.querySelector(
+    '#user-message +.message-box'
+  );
+
+  email.addEventListener('focusout', validateEmail);
+
+  textarea.addEventListener('focusout', validateTextarea);
+
+  submitButton.addEventListener('click', () => {
+    console.log('somth');
+    validateEmail();
+    validateTextarea();
+  });
+
+  function messageBoxWrong(box) {
+    box.hasAttribute('data-correct') ? box.removeAttribute('data-correct') : '';
+    box.hasAttribute('data-incorrect')
+      ? ''
+      : box.setAttribute('data-incorrect', '');
+  }
+
+  function messageBoxRight(box) {
+    box.hasAttribute('data-incorrect')
+      ? box.removeAttribute('data-incorrect')
+      : '';
+    box.hasAttribute('data-correct')
+      ? ''
+      : box.setAttribute('data-correct', '');
+  }
+
+  function validateEmail() {
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      messageBoxRight(emailMessageBox);
+      emailMessageBox.textContent = '';
+    } else if (email.value === '') {
+      messageBoxWrong(emailMessageBox);
+      emailMessageBox.textContent =
+        'enter email address, e.g: john.smith@gmail.com';
+    } else {
+      messageBoxWrong(emailMessageBox);
+      emailMessageBox.textContent =
+        'error or typo, correct format:john.smith@gmail.com';
+    }
+  }
+
+  function validateTextarea() {
+    if (textarea.value === '') {
+      messageBoxWrong(textareaMessageBox);
+      textareaMessageBox.textContent = 'enter your message!';
+    } else {
+      messageBoxRight(textareaMessageBox);
+      textareaMessageBox.textContent = '';
+    }
+  }
+}
+
+export { createContactPage, checkValidation };
