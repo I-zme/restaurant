@@ -135,7 +135,7 @@ body {
   display: grid;
   grid-template-rows: max-content max-content auto;
   justify-items: center;
-  width: clamp(320px, 80%, 700px);
+  width: max(320px, 80%);
   min-height: 100%;
   height: fit-content;
   margin: 0 auto;
